@@ -17,61 +17,33 @@ describe("Robot", () => {
     expect(robot.instructions).toEqual(instructions);
   });
 
-  it("should turn left", () => {
+  test.each([
+    ["L", "W"],
+    ["R", "E"],
+  ])("should turn %s", (direction, orientation) => {
     const position = { x: 1, y: 1, orientation: "N" as Orientation };
     const robot = new Robot(position, "");
 
-    robot.rotate("L");
+    robot.rotate(direction as "L" | "R");
 
-    expect(robot.position.orientation).toBe("W");
+    expect(robot.position.orientation).toBe(orientation);
   });
 
-  it("should turn right", () => {
-    const position = { x: 1, y: 1, orientation: "N" as Orientation };
-    const robot = new Robot(position, "");
+  test.each([
+    ["N", 1, 0],
+    ["E", 2, 1],
+    ["S", 1, 2],
+    ["W", 0, 1],
+  ])(
+    "should move forward to correct position facing %s",
+    (direction, xPos, yPos) => {
+      const position = { x: 1, y: 1, orientation: direction as Orientation };
+      const robot = new Robot(position, "");
 
-    robot.rotate("R");
+      robot.forward({ width: 5, height: 3 });
 
-    expect(robot.position.orientation).toBe("E");
-  });
-
-  it("should move forward facing north", () => {
-    const position = { x: 1, y: 1, orientation: "N" as Orientation };
-    const robot = new Robot(position, "");
-
-    robot.forward({ width: 5, height: 3 });
-
-    expect(robot.position.x).toBe(1);
-    expect(robot.position.y).toBe(0);
-  });
-
-  it("should move forward facing east", () => {
-    const position = { x: 1, y: 1, orientation: "E" as Orientation };
-    const robot = new Robot(position, "");
-
-    robot.forward({ width: 5, height: 3 });
-
-    expect(robot.position.x).toBe(2);
-    expect(robot.position.y).toBe(1);
-  });
-
-  it("should move forward facing south", () => {
-    const position = { x: 1, y: 1, orientation: "S" as Orientation };
-    const robot = new Robot(position, "");
-
-    robot.forward({ width: 5, height: 3 });
-
-    expect(robot.position.x).toBe(1);
-    expect(robot.position.y).toBe(2);
-  });
-
-  it("should move forward facing west", () => {
-    const position = { x: 1, y: 1, orientation: "W" as Orientation };
-    const robot = new Robot(position, "");
-
-    robot.forward({ width: 5, height: 3 });
-
-    expect(robot.position.x).toBe(0);
-    expect(robot.position.y).toBe(1);
-  });
+      expect(robot.position.x).toBe(xPos);
+      expect(robot.position.y).toBe(yPos);
+    },
+  );
 });

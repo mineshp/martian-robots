@@ -42,3 +42,13 @@ export function simulateRobots(grid: Mars, robots: Robot[]): Position[] {
 
   return finalPositions;
 }
+
+export function formatPositionsForOutput(positions: Position[]): string {
+  const positionStrings = positions.map(position => {
+    const { x, y, orientation, isLost } = position;
+    const displayRobotLost = isLost ? "LOST" : undefined;
+    return `${x} ${y} ${orientation}${isLost ? ` ${displayRobotLost}` : ""}`;
+  });
+
+  return positionStrings.join("\n");
+}

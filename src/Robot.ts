@@ -54,6 +54,16 @@ export default class Robot {
         newPosition = { x: x - 1, y, orientation };
       }
     }
-    this.position = newPosition;
+
+    if (this.isPositionWithinGrid(newPosition, grid)) {
+      this.position = newPosition;
+    } else {
+      this.position = { ...this.position, isLost: true };
+    }
+  }
+
+  private isPositionWithinGrid(position: Position, grid: Mars): boolean {
+    const { x, y } = position;
+    return x >= 0 && x <= grid.width && y >= 0 && y <= grid.height;
   }
 }
