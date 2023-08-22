@@ -2,8 +2,9 @@
   "name": "martian-robots",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "dist/main.js",
   "scripts": {
+    "build": "tsc",
     "test": "jest --config jestconfig.json",
     "test:watch": "npm run test -- --watchAll"
   },

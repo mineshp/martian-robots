@@ -56,6 +56,17 @@ Page 2 of 3
 3 3 N LOST
 2 3 S
 
+## Approach
+
+I approached this exercise using TDD, using the red, green, refactor approach. Each cycle I tried to add a failing test, write the smallest amount of code to make it pass and refactor.
+
+When writing the code, I tried to follow the clean code principles.
+
+- ensuring functions only served one purpose.
+- Functions and variables were named so that they describe what they are doing.
+- Breaking down code into reusable functions so that they can be easily tested.
+- Using DRY, not to repeat myself
+
 ## Development
 
 This task is written using typescript and will attempt to solve the martian robots problem.
@@ -67,6 +78,8 @@ Using eslint and prettier
 Eslint is configured and using the recommended configuration, with a couple of additional rules.
 
 Prettier has also been setup to override rules for code formatting.
+
+_Note_: There was a configuration error with eslint which means it's not able to run currently. I would look to fix this if I had more time. I have left the files in place.
 
 ### Testing
 
@@ -86,4 +99,20 @@ npm run test:watch
 
 ### How to run?
 
+Compile the typescript code
+
+```bash
+npm run build
+```
+
+Run the node script
+
+```bash
+node dist/main.js "5 3
+1 1 E
+RFRFRFRF
+3 2 N
+FRRFLLFFRRFLL
+0 3 W
+LLFFFLFLFL"
 ````

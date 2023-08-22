@@ -88,12 +88,22 @@ Red Badger Consulting Limited
 Page 2 of 3
 3 3 N LOST
 2 3 S</p>
+<h2 id="approach">Approach</h2>
+<p>I approached this exercise using TDD, using the red, green, refactor approach. Each cycle I tried to add a failing test, write the smallest amount of code to make it pass and refactor.</p>
+<p>When writing the code, I tried to follow the clean code principles.</p>
+<ul>
+<li>ensuring functions only served one purpose.</li>
+<li>Functions and variables were named so that they describe what they are doing.</li>
+<li>Breaking down code into reusable functions so that they can be easily tested.</li>
+<li>Using DRY, not to repeat myself</li>
+</ul>
 <h2 id="development">Development</h2>
 <p>This task is written using typescript and will attempt to solve the martian robots problem.</p>
 <h3 id="linting">Linting</h3>
 <p>Using eslint and prettier</p>
 <p>Eslint is configured and using the recommended configuration, with a couple of additional rules.</p>
 <p>Prettier has also been setup to override rules for code formatting.</p>
+<p><em>Note</em>: There was a configuration error with eslint which means it's not able to run currently. I would look to fix this if I had more time. I have left the files in place.</p>
 <h3 id="testing">Testing</h3>
 <p>Unit Tests are written using jest in typescript.</p>
 <p>To run</p>
@@ -108,6 +118,22 @@ npm run <span class="hljs-built_in">test</span>:watch
 
 <span class="hljs-comment">### How to run?</span>
 
+Compile the typescript code
+
+```bash
+npm run build
+```
+
+Run the node script
+
+```bash
+node dist/main.js <span class="hljs-string">&quot;5 3
+1 1 E
+RFRFRFRF
+3 2 N
+FRRFLLFFRRFLL
+0 3 W
+LLFFFLFLFL&quot;</span>
 </code></pre>
 
         
