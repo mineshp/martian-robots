@@ -71,6 +71,34 @@ When writing the code, I tried to follow the clean code principles.
 
 This task is written using typescript and will attempt to solve the martian robots problem.
 
+### How to run?
+
+You can either run the tests or execute the node script to test.
+
+Install node modules to run
+
+```bash
+npm i
+```
+
+Compile the typescript code
+
+```bash
+npm run build
+```
+
+Run the node script
+
+```bash
+node dist/main.js "5 3
+1 1 E
+RFRFRFRF
+3 2 N
+FRRFLLFFRRFLL
+0 3 W
+LLFFFLFLFL"
+```
+
 ### Linting
 
 Using eslint and prettier
@@ -97,22 +125,4 @@ To run in watch mode
 npm run test:watch
 `
 
-### How to run?
-
-Compile the typescript code
-
-```bash
-npm run build
-```
-
-Run the node script
-
-```bash
-node dist/main.js "5 3
-1 1 E
-RFRFRFRF
-3 2 N
-FRRFLLFFRRFLL
-0 3 W
-LLFFFLFLFL"
 ````

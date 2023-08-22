@@ -99,6 +99,23 @@ Page 2 of 3
 </ul>
 <h2 id="development">Development</h2>
 <p>This task is written using typescript and will attempt to solve the martian robots problem.</p>
+<h3 id="how-to-run">How to run?</h3>
+<p>You can either run the tests or execute the node script to test.</p>
+<p>Install node modules to run</p>
+<pre><code class="language-bash">npm i
+</code></pre>
+<p>Compile the typescript code</p>
+<pre><code class="language-bash">npm run build
+</code></pre>
+<p>Run the node script</p>
+<pre><code class="language-bash">node dist/main.js <span class="hljs-string">&quot;5 3
+1 1 E
+RFRFRFRF
+3 2 N
+FRRFLLFFRRFLL
+0 3 W
+LLFFFLFLFL&quot;</span>
+</code></pre>
 <h3 id="linting">Linting</h3>
 <p>Using eslint and prettier</p>
 <p>Eslint is configured and using the recommended configuration, with a couple of additional rules.</p>
@@ -116,24 +133,6 @@ To run <span class="hljs-keyword">in</span> watch mode
 npm run <span class="hljs-built_in">test</span>:watch
 `
 
-<span class="hljs-comment">### How to run?</span>
-
-Compile the typescript code
-
-```bash
-npm run build
-```
-
-Run the node script
-
-```bash
-node dist/main.js <span class="hljs-string">&quot;5 3
-1 1 E
-RFRFRFRF
-3 2 N
-FRRFLLFFRRFLL
-0 3 W
-LLFFFLFLFL&quot;</span>
 </code></pre>
 
         
