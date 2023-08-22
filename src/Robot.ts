@@ -11,8 +11,12 @@ export default class Robot {
   }
 
   move(grid: Mars) {
-    for (const instructions of this.instructions) {
-      console.log(instructions);
+    for (const instruction of this.instructions) {
+      if (instruction === "L" || instruction === "R") {
+        this.rotate(instruction);
+      } else if (instruction === "F") {
+        this.forward(grid);
+      }
     }
   }
 
@@ -30,22 +34,26 @@ export default class Robot {
   }
 
   forward(grid: Mars) {
-    if (this.position.orientation === "N") {
-      if (this.position.y < grid.height) {
-        return this.position.y--;
+    const { x, y, orientation } = this.position;
+    let newPosition: Position = { ...this.position };
+
+    if (orientation === "N") {
+      if (y < grid.height) {
+        newPosition = { x, y: y - 1, orientation };
       }
-    } else if (this.position.orientation === "E") {
-      if (this.position.x < grid.width) {
-        return this.position.x++;
+    } else if (orientation === "E") {
+      if (x < grid.width) {
+        newPosition = { x: x + 1, y, orientation };
       }
-    } else if (this.position.orientation === "S") {
-      if (this.position.y < grid.height) {
-        return this.position.y++;
+    } else if (orientation === "S") {
+      if (y < grid.height) {
+        newPosition = { x, y: y + 1, orientation };
       }
-    } else if (this.position.orientation === "W") {
-      if (this.position.x < grid.width) {
-        return this.position.x--;
+    } else if (orientation === "W") {
+      if (x < grid.width) {
+        newPosition = { x: x - 1, y, orientation };
       }
     }
+    this.position = newPosition;
   }
 }

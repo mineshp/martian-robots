@@ -40,5 +40,5 @@ export function simulateRobots(grid: Mars, robots: Robot[]): Position[] {
     finalPositions.push(robot.position);
   }
 
-  return [];
+  return finalPositions;
 }

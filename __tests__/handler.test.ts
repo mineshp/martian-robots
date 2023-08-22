@@ -1,21 +1,8 @@
-import { parseInput } from "../src/handler";
+import { parseInput, simulateRobots } from "../src/handler";
 
 describe("Mars", () => {
   it("parse input and validates input is not empty", () => {
     expect(() => parseInput("")).toThrow("Input is empty");
-  });
-
-  it("parse input, create grid and robots", () => {
-    const input = "5 3\n1 1 E\nRFRFRFRF";
-
-    const { grid, robots } = parseInput(input);
-
-    expect(grid).toEqual({ width: 5, height: 3 });
-    expect(robots).toHaveLength(1);
-    expect(robots[0]).toEqual({
-      position: { x: 1, y: 1, orientation: "E" },
-      instructions: "RFRFRFRF",
-    });
   });
 
   it("should simulate robot movements and update positions", () => {
@@ -41,5 +28,13 @@ describe("Mars", () => {
       position: { x: 0, y: 3, orientation: "W" },
       instructions: "LLFFFLFLFL",
     });
+
+    const finalPositions = simulateRobots(grid, robots);
+
+    expect(finalPositions).toEqual([
+      { x: 1, y: 1, orientation: "E" },
+      { x: 3, y: 1, orientation: "N" },
+      { x: 2, y: 3, orientation: "S" },
+    ]);
   });
 });
