@@ -15,7 +15,8 @@ export function parseInput(input: string): { grid: Mars; robots: Robot[] } {
   const robots: Robot[] = [];
 
   for (let i = 0; i < robotOperations.length; i += 2) {
-    const [position, instructions] = robotOperations;
+    const nextOperations = robotOperations.slice(i, i + 2);
+    const [position, instructions] = nextOperations;
     const [x, y, orientation] = position.split(/ /);
 
     const positionData = {
