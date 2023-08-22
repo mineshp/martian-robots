@@ -18,7 +18,7 @@ describe("Mars", () => {
     });
   });
 
-  it("parse input string and handle multiple robot instructions", () => {
+  it("should simulate robot movements and update positions", () => {
     const input =
       "5 3\n1 1 E\nRFRFRFRF\n3 2 N\nFRRFLLFFRRFLL\n0 3 W\nLLFFFLFLFL";
 

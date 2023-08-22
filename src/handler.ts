@@ -1,6 +1,6 @@
 import Mars from "./Mars";
 import Robot from "./Robot";
-import { Orientation } from "./types";
+import { Orientation, Position } from "./types";
 
 export function parseInput(input: string): { grid: Mars; robots: Robot[] } {
   if (!input) {
@@ -30,4 +30,15 @@ export function parseInput(input: string): { grid: Mars; robots: Robot[] } {
   }
 
   return { grid, robots };
+}
+
+export function simulateRobots(grid: Mars, robots: Robot[]): Position[] {
+  const finalPositions: Position[] = [];
+
+  for (const robot of robots) {
+    robot.move(grid);
+    finalPositions.push(robot.position);
+  }
+
+  return [];
 }
