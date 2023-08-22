@@ -38,18 +38,18 @@ export default class Robot {
     let newPosition: Position = { ...this.position };
 
     if (orientation === "N") {
-      if (y < grid.height) {
+      if (y < grid.height && !grid.hasScent(x, y - 1)) {
         newPosition = { x, y: y - 1, orientation };
       }
     } else if (orientation === "E") {
-      if (x < grid.width) {
+      if (x < grid.width && !grid.hasScent(x + 1, y)) {
         newPosition = { x: x + 1, y, orientation };
       }
-    } else if (orientation === "S") {
+    } else if (orientation === "S" && !grid.hasScent(x, y + 1)) {
       if (y < grid.height) {
         newPosition = { x, y: y + 1, orientation };
       }
-    } else if (orientation === "W") {
+    } else if (orientation === "W" && !grid.hasScent(x - 1, y)) {
       if (x < grid.width) {
         newPosition = { x: x - 1, y, orientation };
       }
@@ -59,6 +59,7 @@ export default class Robot {
       this.position = newPosition;
     } else {
       this.position = { ...this.position, isLost: true };
+      grid.addScent(x, y);
     }
   }
 

@@ -1,3 +1,4 @@
+import Mars from "../src/Mars";
 import Robot from "../src/Robot";
 import { Orientation } from "../src/types";
 
@@ -39,8 +40,8 @@ describe("Robot", () => {
     (direction, xPos, yPos) => {
       const position = { x: 1, y: 1, orientation: direction as Orientation };
       const robot = new Robot(position, "");
-
-      robot.forward({ width: 5, height: 3 });
+      const grid = new Mars(5, 3);
+      robot.forward(grid);
 
       expect(robot.position.x).toBe(xPos);
       expect(robot.position.y).toBe(yPos);

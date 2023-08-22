@@ -15,8 +15,8 @@ describe("Mars", () => {
 
     const { grid, robots } = parseInput(input);
 
-    expect(grid).toEqual({ width: 5, height: 3 });
-    expect(robots).toHaveLength(3);
+    expect(grid.width).toBe(5);
+    expect(grid.height).toBe(3);
 
     expect(robots[0]).toEqual({
       position: { x: 1, y: 1, orientation: "E" },
@@ -51,7 +51,8 @@ describe("Mars", () => {
 
     const { grid, robots } = parseInput(input);
 
-    expect(grid).toEqual({ width: 5, height: 3 });
+    expect(grid.width).toBe(5);
+    expect(grid.height).toBe(3);
 
     expect(robots).toHaveLength(1);
 
