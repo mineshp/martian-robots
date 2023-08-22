@@ -18,11 +18,34 @@ export default class Robot {
 
   rotate(direction: "L" | "R") {
     const orientations = ["N", "E", "S", "W"];
-    const currentOrientation = orientations.indexOf(this.position.orientation);
+    const currentOrientationIndex = orientations.indexOf(
+      this.position.orientation,
+    );
     const changeDirection = direction === "R" ? 1 : -1;
-    const newOrientationIndex = (currentOrientation + changeDirection + 4) % 4;
+    const newOrientationIndex =
+      (currentOrientationIndex + changeDirection + 4) % 4;
     this.position.orientation = orientations[
       newOrientationIndex
     ] as Orientation;
+  }
+
+  forward(grid: Mars) {
+    if (this.position.orientation === "N") {
+      if (this.position.y < grid.height) {
+        return this.position.y--;
+      }
+    } else if (this.position.orientation === "E") {
+      if (this.position.x < grid.width) {
+        return this.position.x++;
+      }
+    } else if (this.position.orientation === "S") {
+      if (this.position.y < grid.height) {
+        return this.position.y++;
+      }
+    } else if (this.position.orientation === "W") {
+      if (this.position.x < grid.width) {
+        return this.position.x--;
+      }
+    }
   }
 }
